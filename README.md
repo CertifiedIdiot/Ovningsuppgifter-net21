@@ -1,2 +1,2 @@
-# Ovningsuppgifter-net21
+# OwlsRepo-net21
 Eleganta lösningar till fula problem, eller tvärtom!
