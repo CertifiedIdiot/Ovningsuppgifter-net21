@@ -47,11 +47,20 @@ namespace Oh_Fortuna
             {
                 Console.Clear();
 
+                // Har spelaren råd att spela spelet?
+                if(pixAmount < 50)
+                {
+                    Console.WriteLine("You're too broke to play... Maybe try finding a different hobby?");
+                    Console.WriteLine("\nPress any key to continue.");
+                    Console.ReadKey();
+                    break;
+                }
+
                 // Placering av bet.
                 while(true)
                 {
-                    Console.WriteLine($"You have: {pixAmount} pix.");
-                    Console.WriteLine("Minimum bet amount is 50 pix.");
+                    Console.WriteLine($"You have: {pixAmount} pixs.");
+                    Console.WriteLine("Minimum bet amount is 50 pixs.");
                     Console.Write("\nHow many pixs do you wish to bet?: ");
                     betAmount = consoleToInt();
 
@@ -60,14 +69,15 @@ namespace Oh_Fortuna
                         break;
                     }
 
-                    Console.WriteLine("You need to bet at least 50 pix!");
+                    Console.WriteLine("You need to bet at least 50 pixs!");
                     Console.WriteLine("\nPress enter to continue...");
                     Console.ReadLine();
                     Console.Clear();
                 }
+
                 if(betAmount > pixAmount)
                 {
-                    Console.WriteLine("You don't have that many pix!! You can't bet what you don't have...");
+                    Console.WriteLine("You don't have that many pixs!! You can't bet what you don't have...");
                     Console.WriteLine("\nPress enter to continue...");
                     Console.ReadLine();
                     Console.Clear();
@@ -100,7 +110,7 @@ namespace Oh_Fortuna
 
                     // Kast av tärningar.
                     player.Play();
-                    for(int i = 10; i != 0; i--)
+                    for(int i = 0; i < 10; i++)
                     {
                         Random rnd = new Random();
                         diceNumber[0]  = rnd.Next(1, 6);
@@ -110,7 +120,8 @@ namespace Oh_Fortuna
                         Console.WriteLine($"  | {diceNumber[0]}   {diceNumber[1]}   {diceNumber[2]} |");
                         Console.WriteLine("   -----------");
                         Thread.Sleep(200);
-                        if(i > 1)
+
+                        if(i < 9)
                         {
                             Console.Clear();
                         }
@@ -118,49 +129,52 @@ namespace Oh_Fortuna
 
                     // Kollar hur många pix spelaren van.
                     int preGamePixAmount = pixAmount;
+                    pixAmount = pixAmount - betAmount;
 
-                    if(diceNumber[0] == luckyNumber)
+                    for(int i = 0; i < 3; i++)
                     {
-                        luckyNumberTally++;
-                    }
-                    if(diceNumber[1] == luckyNumber)
-                    {
-                        luckyNumberTally++;
-                    }
-                    if(diceNumber[2] == luckyNumber)
-                    {
-                        luckyNumberTally++;
+                        if(luckyNumber == diceNumber[i])
+                        {
+                            luckyNumberTally++;
+                        }
                     }
 
-                    if(luckyNumberTally == 0)
+
+                    if(luckyNumberTally != 0)
                     {
-                        pixAmount -= betAmount;
-                    }
-                    if(luckyNumberTally == 1)
-                    {
-                        pixAmount += betAmount * 2;
-                    }
-                    if(luckyNumberTally == 2)
-                    {
-                        pixAmount += betAmount * 3;
-                    }
-                    if(luckyNumberTally == 3)
-                    {
-                        pixAmount += betAmount * 4;
+                        pixAmount += (luckyNumberTally + 1) * betAmount;
                     }
 
                     int postGamePixDifference = pixAmount - preGamePixAmount;
                     if(preGamePixAmount > pixAmount)
                     {
-                        Console.WriteLine($"\nYou lost {postGamePixDifference}. Better luck next time...");
+                        Console.WriteLine($"\nYou lost {postGamePixDifference} pixs. Better luck next time...");
                     }
                     else
                     {
-                        Console.WriteLine($"\nCongratulations! You won {postGamePixDifference}.");
+                        Console.WriteLine($"\nCongratulations! You won {postGamePixDifference} pixs.");
                     }
                     
-                    Console.WriteLine("\nPress enter to continue...");
-                    Console.ReadLine();
+                    // Spela igen?
+                    while(true)
+                    {
+                        Console.WriteLine("\nDo you wish to play again? y/n");
+                        string playAgain = Console.ReadLine();
+                        
+                        if(playAgain == "n")
+                        {
+                            Console.WriteLine("Goodbye.");
+                            System.Environment.Exit(1);
+                        }
+                        if(playAgain == "y")
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid answer... Try again!");
+                        }
+                    }
                 }
             }
         }
