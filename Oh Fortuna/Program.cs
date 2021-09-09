@@ -29,7 +29,7 @@ namespace Oh_Fortuna
         {
             // Olika Stack Overflow inlägg ihop klistrade för att spela ljud. :^)
             // Glöm inte att kommentera bort denna raden ifall du inte ändrar dens PATH till ljud filen.
-            // Kommentera även bort player.Play() i koden i rad 108.
+            // Kommentera även bort player.Play() i koden i rad 102.
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\Unknown\Desktop\OwlsRepo-net21\Oh Fortuna\slotMachine.wav");
 
             // Starta med 500 pix.
