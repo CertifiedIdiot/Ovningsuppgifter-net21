@@ -12,7 +12,6 @@ namespace Bubbelsort
             {
                 Random rnd = new Random();
                 numbers[i] = rnd.Next(1, 50);
-
             }
 
             // Sortering av tal.
