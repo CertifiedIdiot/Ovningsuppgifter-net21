@@ -27,8 +27,6 @@ namespace Oh_Fortuna
             }
         }
 
-        
-
         static void Main()
         {
             // Olika Stack Overflow inlägg ihop klistrade för att spela ljud. :^)
@@ -50,7 +48,6 @@ namespace Oh_Fortuna
             while(true)
             {
                 Console.Clear();
-
 
                 // Placering av bet.
                 while(true)
@@ -95,13 +92,12 @@ namespace Oh_Fortuna
                         }
                         Console.WriteLine("Number is not between 1 and 6, try again.");
                     }
+                    
                     Console.Clear();
                     Console.WriteLine("Rolling the dice of fate...");
                     Thread.Sleep(2000);
 
-                    int diceNumber1 = 0;
-                    int diceNumber2 = 0;
-                    int diceNumber3 = 0;
+                    int[] diceNumber = {0, 0, 0};
                     int luckyNumberTally = 0;
 
                     // Kast av tärningar.
@@ -109,10 +105,12 @@ namespace Oh_Fortuna
                     for(int i = 10; i != 0; i--)
                     {
                         Random rnd = new Random();
-                        diceNumber1  = rnd.Next(1, 6);
-                        diceNumber2  = rnd.Next(1, 6);
-                        diceNumber3  = rnd.Next(1, 6);
-                        Console.WriteLine($"   {diceNumber1}   {diceNumber2}   {diceNumber3}");
+                        diceNumber[0]  = rnd.Next(1, 6);
+                        diceNumber[1]  = rnd.Next(1, 6);
+                        diceNumber[2]  = rnd.Next(1, 6);
+                        Console.WriteLine("   -----------");
+                        Console.WriteLine($"  | {diceNumber[0]}   {diceNumber[1]}   {diceNumber[2]} |");
+                        Console.WriteLine("   -----------");
                         Thread.Sleep(200);
                         if(i > 1)
                         {
@@ -123,15 +121,15 @@ namespace Oh_Fortuna
                     // Kollar hur många pix spelaren van.
                     int preGamePixAmount = pixAmount;
 
-                    if(diceNumber1 == luckyNumber)
+                    if(diceNumber[0] == luckyNumber)
                     {
                         luckyNumberTally++;
                     }
-                    if(diceNumber2 == luckyNumber)
+                    if(diceNumber[1] == luckyNumber)
                     {
                         luckyNumberTally++;
                     }
-                    if(diceNumber3 == luckyNumber)
+                    if(diceNumber[2] == luckyNumber)
                     {
                         luckyNumberTally++;
                     }
