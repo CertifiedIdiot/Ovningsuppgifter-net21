@@ -5,10 +5,8 @@ using System.Threading;
 // Kan ej köras på andra system än windows tack vare Nugeten som är inkluderad för att spela ljud.
 namespace Oh_Fortuna
 {
-    
     class Program
     {
-        
         // Hämtar inmatning från konsolen och konverterar till en integer, accepterar ej negativa tal.
         // Kommer att fråga efter ett nytt tal ifall det inte går att konvertera till en integer.
         static int consoleToInt()
@@ -92,7 +90,7 @@ namespace Oh_Fortuna
                         }
                         Console.WriteLine("Number is not between 1 and 6, try again.");
                     }
-                    
+
                     Console.Clear();
                     Console.WriteLine("Rolling the dice of fate...");
                     Thread.Sleep(2000);
@@ -134,7 +132,6 @@ namespace Oh_Fortuna
                         luckyNumberTally++;
                     }
 
-
                     if(luckyNumberTally == 0)
                     {
                         pixAmount -= betAmount;
@@ -159,10 +156,9 @@ namespace Oh_Fortuna
                     }
                     else
                     {
-                        {
-                            Console.WriteLine($"\nCongratulations! You won {postGamePixDifference}.");
-                        }
+                        Console.WriteLine($"\nCongratulations! You won {postGamePixDifference}.");
                     }
+                    
                     Console.WriteLine("\nPress enter to continue...");
                     Console.ReadLine();
                 }
