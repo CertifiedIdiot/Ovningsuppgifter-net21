@@ -5,6 +5,11 @@
     <RootNamespace>Oh_Fortuna</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="System.Windows.Extensions" Version="5.0.0"/>
+    <PackageReference Include="System.Windows.Extensions" Version="5.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="slotMachine.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>

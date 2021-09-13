@@ -30,7 +30,7 @@ namespace Oh_Fortuna
             // Olika Stack Overflow inlägg ihop klistrade för att spela ljud. :^)
             // Glöm inte att kommentera bort denna raden ifall du inte ändrar dens PATH till ljud filen.
             // Kommentera även bort player.Play() i koden i rad 102.
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\Unknown\Desktop\OwlsRepo-net21\Oh Fortuna\slotMachine.wav");
+            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@".\slotMachine.wav");
 
             // Starta med 500 pix.
             // Minst 50 pix per bet.
@@ -110,6 +110,7 @@ namespace Oh_Fortuna
 
                     // Kast av tärningar.
                     player.Play();
+                    Console.Clear();
                     for(int i = 0; i < 10; i++)
                     {
                         Random rnd = new Random();
