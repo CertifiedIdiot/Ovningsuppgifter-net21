@@ -28,15 +28,8 @@ namespace Oh_Fortuna
         static void Main()
         {
             // Olika Stack Overflow inlägg ihop klistrade för att spela ljud. :^)
-            // Glöm inte att kommentera bort denna raden ifall du inte ändrar dens PATH till ljud filen.
-<<<<<<< HEAD
-            // Kommentera även bort player.Play() i koden i rad 102.
             System.Media.SoundPlayer player = new System.Media.SoundPlayer(@".\slotMachine.wav");
-=======
-            // Kommentera även bort player.Play() i koden.
-            System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"C:\Users\Unknown\Desktop\OwlsRepo-net21\Oh Fortuna\slotMachine.wav");
->>>>>>> 27c6f0c1ce3cd9a8492e9871829da6489c36c0ae
-
+            
             // Starta med 500 pix.
             // Minst 50 pix per bet.
             // Tre tärningar skall kastas.
